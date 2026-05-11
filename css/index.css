@@ -1,0 +1,1021 @@
+/* Reset e Base - CENTRAL 24 HORAS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a2559 0%, #28377c 50%, #34428a 100%);
+    min-height: 100vh;
+    color: #28377c;
+}
+.login-page {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #28377c, #1a2559);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.login-logo {
+  width: 120px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+}
+
+.login-page.active {
+  display: flex;
+}
+
+.login-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 300px;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 0.7rem;
+  cursor: pointer;
+  background-color: #f1c303;
+  border: 2px solid #f1c303;
+  color: #28377c;
+  font-weight: bold;
+  border-radius: 8px;}
+
+/* Gradientes da Central 24 Horas */
+.gradient-primary {
+    background: linear-gradient(135deg, #28377c 0%, #34428a 50%, #1a2559 100%);
+}
+
+.gradient-secondary {
+    background: linear-gradient(135deg, #f1c303 0%, #f8ec9a 50%, #fedb4a 100%);
+}
+
+.gradient-light {
+    background: linear-gradient(135deg, #fefffe 0%, #f8f9ff 50%, #fefffe 100%);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header - Central 24 Horas */
+.header {
+    background: rgba(254, 255, 254, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(40, 55, 124, 0.15);
+    border-bottom: 4px solid #f1c303;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header h1 {
+    background: linear-gradient(135deg, #28377c, #f1c303);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-shadow: 0 2px 10px rgba(241, 195, 3, 0.3);
+}
+
+.header h1 i {
+    background: linear-gradient(135deg, #f1c303, #f8ec9a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.2rem;
+}
+
+.header-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #fefffe, #f8ec9a);
+    color: #28377c;
+    padding: 1.2rem 1.8rem;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 160px;
+    border: 2px solid rgba(241, 195, 3, 0.3);
+    box-shadow: 0 8px 25px rgba(241, 195, 3, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f1c303, #f8ec9a);
+}
+
+.stat-number {
+    font-size: 1.25rem;
+    font-weight: 900;
+    display: block;
+    color: #28377c;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Navigation - Central 24 Horas */
+.nav {
+    display: flex;
+    background: rgba(254, 255, 254, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(40, 55, 124, 0.1);
+    padding: 0.75rem;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    border-bottom: 1px solid rgba(241, 195, 3, 0.2);
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 1.1rem 1.8rem;
+    border: 2px solid transparent;
+    background: rgba(254, 255, 254, 0.8);
+    color: #97a1bc;
+    cursor: pointer;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(241, 195, 3, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-btn:hover {
+    background: rgba(248, 236, 154, 0.9);
+    color: #28377c;
+    border-color: rgba(241, 195, 3, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(241, 195, 3, 0.25);
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #f1c303, #f8ec9a);
+    color: #28377c;
+    border-color: #28377c;
+    box-shadow: 0 8px 30px rgba(241, 195, 3, 0.4);
+    transform: translateY(-3px);
+}
+
+.nav-btn.active i {
+    color: #28377c !important;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+.page {
+    display: none;
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+h2 {
+    background: linear-gradient(135deg, #fefffe, #f8ec9a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-shadow: 0 4px 15px rgba(241, 195, 3, 0.3);
+}
+
+/* Cards - Central 24 Horas */
+.card {
+    background: rgba(254, 255, 254, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 
+        0 20px 40px rgba(40, 55, 124, 0.12),
+        0 0 0 1px rgba(254, 255, 254, 0.8),
+        inset 0 1px 0 rgba(241, 195, 3, 0.1);
+    border: 1px solid rgba(151, 161, 188, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f1c303, #f8ec9a, #f1c303);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(40, 55, 124, 0.2),
+        0 0 0 1px rgba(241, 195, 3, 0.3);
+}
+
+.card h3 {
+    color: #28377c;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.stat-large {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #28377c, #f1c303);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.chart-container {
+    height: 350px;
+    background: linear-gradient(135deg, rgba(254,255,254,0.8), rgba(248,236,154,0.3));
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 2px solid rgba(241, 195, 3, 0.2);
+}
+
+/* Formulário - Central 24 Horas */
+.form-container {
+    background: rgba(254, 255, 254, 0.97);
+    backdrop-filter: blur(25px);
+    border-radius: 28px;
+    padding: 3rem;
+    box-shadow: 
+        0 30px 60px rgba(40, 55, 124, 0.15),
+        0 0 0 1px rgba(254, 255, 254, 0.9),
+        inset 0 1px 0 rgba(241, 195, 3, 0.2);
+    border: 2px solid rgba(151, 161, 188, 0.15);
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.form-container::before {
+    content: 'Central 24 Horas';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #28377c, #f1c303);
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(40, 55, 124, 0.3);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.form-group label {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    color: #28377c;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group label::before {
+    content: '*';
+    color: #f1c303;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select {
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(151, 161, 188, 0.4);
+    border-radius: 16px;
+    font-size: 1rem;
+    background: rgba(254, 255, 254, 0.9);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #f1c303;
+    box-shadow: 
+        0 0 0 4px rgba(241, 195, 3, 0.15),
+        0 8px 25px rgba(241, 195, 3, 0.1);
+    transform: translateY(-2px);
+    background: white;
+}
+
+.error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 1rem;
+    background: rgba(248, 236, 154, 0.2);
+    border-radius: 12px;
+    border: 2px solid rgba(241, 195, 3, 0.2);
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+    background: rgba(241, 195, 3, 0.1);
+    border-color: #f1c303;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    background: rgba(254, 255, 254, 0.9);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 2px solid rgba(151, 161, 188, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+.filters input,
+.filters select {
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(151, 161, 188, 0.4);
+    border-radius: 16px;
+    flex: 1;
+    min-width: 220px;
+    background: rgba(254, 255, 254, 0.9);
+}
+
+/* Tabela - Central 24 Horas */
+.table-container {
+    max-height: 75vh;
+    overflow-y: auto;
+    border-radius: 1em;
+}
+
+#equipamentosTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#equipamentosTable thead {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: linear-gradient(135deg, #28377c, #34428a);
+    color: #fefffe;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    font-weight: 800;
+    cursor: pointer;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 3px solid #f1c303;
+}
+
+th:hover {
+    background: linear-gradient(135deg, #1a2559, #28377c);
+}
+
+td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(151, 161, 188, 0.2);
+    background: rgba(254, 255, 254, 0.8);
+}
+
+.status-ativo {
+    color: #10b981;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    background: rgba(16, 185, 129, 0.15);
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.status-inativo {
+    color: #ef4444;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    background: rgba(239, 68, 68, 0.15);
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.valor {
+    font-weight: 900;
+    color: #28377c;
+    font-size: 1.1rem;
+}
+
+/* Botões de Ação */
+.action-btn {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.btn-edit:hover {
+    transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.btn-delete:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.btn-historico {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.btn-historico:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+/* Botões Principais - Central 24 Horas */
+.btn {
+    padding: 1.1rem 2.2rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #28377c, #34428a, #1a2559);
+    color: #fefffe;
+    box-shadow: 0 10px 30px rgba(40, 55, 124, 0.4);
+    border: 2px solid rgba(241, 195, 3, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(40, 55, 124, 0.5);
+    border-color: #f1c303;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #fefffe, #f8ec9a);
+    color: #28377c;
+    border: 2px solid rgba(151, 161, 188, 0.4);
+    box-shadow: 0 8px 25px rgba(248, 236, 154, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(241, 195, 3, 0.4);
+    border-color: #f1c303;
+}
+
+/* Relatórios */
+.report-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.report-card {
+    background: rgba(254, 255, 254, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 20px 40px rgba(40, 55, 124, 0.12),
+        0 0 0 1px rgba(254, 255, 254, 0.8);
+    border: 2px solid rgba(151, 161, 188, 0.2);
+}
+
+.report-card h3 {
+    color: #28377c;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.report-value {
+    font-size: 3.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #28377c, #f1c303);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.report-list {
+    margin-top: 1.5rem;
+}
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(248, 236, 154, 0.3);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #f1c303;
+    transition: all 0.3s ease;
+}
+
+.report-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(241, 195, 3, 0.2);
+}
+
+/* Modal - Central 24 Horas */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 37, 89, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInModal 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(254,255,254,0.98), rgba(248,236,154,0.1));
+    backdrop-filter: blur(30px);
+    border-radius: 28px;
+    max-width: 95%;
+    max-height: 95%;
+    overflow-y: auto;
+    box-shadow: 
+        0 40px 80px rgba(40, 55, 124, 0.3),
+        0 0 0 1px rgba(254, 255, 254, 0.9),
+        inset 0 1px 0 rgba(241, 195, 3, 0.2);
+    border: 2px solid rgba(151, 161, 188, 0.2);
+    animation: slideInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid rgba(151, 161, 188, 0.2);
+    background: linear-gradient(135deg, rgba(40,55,124,0.05), rgba(52,66,138,0.05));
+}
+
+.modal-header h3 {
+    background: linear-gradient(135deg, #28377c, #f1c303);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.close-modal {
+    background: rgba(151, 161, 188, 0.2);
+    border: 2px solid rgba(151, 161, 188, 0.3);
+    color: #97a1bc;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.modal-body {
+    padding: 2.5rem;
+}
+
+/* Gráficos */
+.setor-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #28377c;
+}
+
+.bar {
+    height: 12px;
+    background: linear-gradient(90deg, #f1c303, #f8ec9a, #fedb4a);
+    border-radius: 8px;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(241, 195, 3, 0.4);
+}
+
+.historico-item {
+    border: 2px solid rgba(151, 161, 188, 0.3);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(254,255,254,0.9), rgba(248,236,154,0.2));
+    box-shadow: 0 8px 25px rgba(40, 55, 124, 0.1);
+    transition: all 0.3s ease;
+}
+
+.historico-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(40, 55, 124, 0.15);
+}
+
+.historico-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(241, 195, 3, 0.3);
+}
+
+.historico-header strong {
+    color: #28377c;
+    font-weight: 900;
+}
+
+.historico-detalhes {
+    font-size: 0.95rem;
+    color: #97a1bc;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Toast - Central 24 Horas */
+.toast {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #f1c303, #f8ec9a);
+    color: #28377c;
+    padding: 1.25rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(241, 195, 3, 0.5);
+    transform: translateX(450px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3000;
+    max-width: 400px;
+    font-weight: 700;
+    border: 2px solid rgba(40, 55, 124, 0.2);
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.error {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    color: white;
+    box-shadow: 0 15px 40px rgba(239, 68, 68, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .nav {
+        flex-direction: column;
+    }
+    
+    .nav-btn {
+        justify-content: center;
+        min-width: auto;
+        padding: 1.25rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filters input,
+    .filters select {
+        min-width: auto;
+    }
+    
+    .form-actions,
+    .report-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    table {
+        font-size: 0.95rem;
+    }
+    
+    th,
+    td {
+        padding: 1rem 0.75rem;
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        margin: 0 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .table-container {
+        max-height: 65vh;
+        border-radius: 16px;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .stat-large {
+        font-size: 2.8rem;
+    }
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(151, 161, 188, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f1c303, #f8ec9a);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #28377c, #f1c303);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#buscandoIndicator {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.import-box {
+  border: 2px dashed #cbd5e1;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.import-box:hover {
+  background: #f1f5f9;
+}
