@@ -317,6 +317,165 @@ h2 {
     text-align: center;
 }
 
+.btn-sair {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 0.9rem 1.4rem;
+
+    background: linear-gradient(
+        135deg,
+        rgba(239, 68, 68, 0.95),
+        rgba(185, 28, 28, 0.95)
+    );
+
+    border: 2px solid rgba(255,255,255,0.15);
+
+    border-radius: 16px;
+
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 12px 24px rgba(239, 68, 68, 0.25),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+}
+
+.btn-sair:hover {
+    transform: translateY(-2px) scale(1.03);
+
+    box-shadow:
+        0 18px 35px rgba(239, 68, 68, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+
+    background: linear-gradient(
+        135deg,
+        rgba(220, 38, 38, 1),
+        rgba(127, 29, 29, 1)
+    );
+}
+
+.btn-sair:active {
+    transform: scale(0.97);
+}
+
+.btn-sair i {
+    font-size: 1rem;
+}
+
+.login-page {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1a2559,
+            #28377c,
+            #34428a
+        );
+
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.login-box {
+    width: 400px;
+
+    padding: 3rem;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.25);
+
+    text-align: center;
+}
+
+.login-logo {
+    width: 130px;
+    margin-bottom: 1.5rem;
+    border-radius: 20px;
+}
+
+.login-box h2 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.login-box input {
+    width: 100%;
+
+    padding: 1rem;
+
+    margin-bottom: 1rem;
+
+    border: none;
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 1rem;
+}
+
+.login-box input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.login-box button {
+    width: 100%;
+
+    padding: 1rem;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #f1c303,
+        #ffdd57
+    );
+
+    color: #1a2559;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(241,195,3,0.35);
+}
+
+.header-logo{
+    width: 5rem;
+}
+
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
@@ -331,6 +490,8 @@ h2 {
 
 .chart-container {
     height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
     background: linear-gradient(135deg, rgba(254,255,254,0.8), rgba(248,236,154,0.3));
     border-radius: 16px;
     display: flex;
@@ -841,7 +1002,7 @@ td {
 
 .historico-detalhes {
     font-size: 0.95rem;
-    color: #97a1bc;
+    color: #524d7c;
     padding-left: 1.5rem;
     line-height: 1.6;
 }
@@ -1018,4 +1179,104 @@ input[type=number]::-webkit-outer-spin-button {
 
 .import-box:hover {
   background: #f1f5f9;
+}
+
+.historico-item {
+
+    background: rgba(255,255,255,0.75);
+
+    border: 1px solid rgba(151,161,188,0.18);
+
+    border-radius: 18px;
+
+    padding: 1.2rem;
+
+    margin-bottom: 1rem;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+.historico-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 1rem;
+}
+
+.historico-header strong {
+
+    color: #1a2559;
+
+    font-size: 0.95rem;
+}
+
+.historico-badge {
+
+    padding: 0.4rem 0.8rem;
+
+    border-radius: 999px;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    color: white;
+}
+
+.badge-entrada {
+    background: #10b981;
+}
+
+.badge-saída {
+    background: #ef4444;
+}
+
+.badge-editado {
+    background: #f59e0b;
+}
+
+.historico-detalhes {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.7rem;
+}
+
+.historico-linha {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    padding-bottom: 0.4rem;
+
+    border-bottom: 1px solid rgba(151,161,188,0.12);
+
+    color: #34428a;
+
+    font-size: 0.92rem;
+}
+
+.historico-edicao {
+
+    margin-top: 0.8rem;
+
+    padding: 1rem;
+
+    border-radius: 14px;
+
+    background: rgba(40,55,124,0.04);
+
+    border: 1px solid rgba(40,55,124,0.08);
 }

@@ -12,25 +12,46 @@
   </head>
   <body>
 
+    <div id="loginPage" class="login-page active">
+  <div class="login-box">
+    <img src="./img/central_24_horas_logo.jpg"
+         alt="Logo da central 24 horas"
+         class="login-logo" />
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+      <input type="text"
+             id="loginUser"
+             placeholder="Usuário"
+             required />
+
+      <input type="password"
+             id="loginPass"
+             placeholder="Senha"
+             required />
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p id="loginError" class="error-message"></p>
+  </div>
+</div>
 
 <div id="app" style="display: none;">
 
-</div>
     <div class="container">
       <!-- Header -->
       <header class="header">
         <div class="header-content">
-          <h1><i class="fas fa-laptop"></i> Gerenciador de Equipamentos TI</h1>
-          <div class="header-stats">
-            <div class="stat-card">
-              <span class="stat-number" id="totalEquipments">0</span>
-              <span>Total Equipamentos</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number" id="totalValue">R$ 0,00</span>
-              <span>Valor Total Aluguel</span>
-            </div>
-          </div>
+          <h1><img src="./img/central_24_horas_logo.jpg"
+         alt="Logo da central 24 horas"
+         class="header-logo" /> Gerenciador de Equipamentos TI</h1>
+         
+          <button id="sairButton" class="btn-sair">
+  <i class="fas fa-sign-out-alt"></i>
+  Sair
+</button>
         </div>
       </header>
 
@@ -110,18 +131,15 @@
               <div class="form-group">
                 <label for="dataChegada">* Data de Chegada</label>
                 <input type="date" id="dataChegada" required />
-              </div>
-              <div class="form-group">
-                <label for="dataSaida">Data de Saída</label>
-                <input type="date" id="dataSaida" />
-              </div>
+              </div>              
               <div class="form-group">
                 <label for="modelo">Modelo</label>
                 <input type="text" id="modelo" maxlength="100" />
               </div>
+
               <div class="form-group">
-                <label for="sn">Número de Série (S/N)</label>
-                <input type="text" id="sn" maxlength="50" />
+                <label for="usuario">Nome do Usuário</label>
+                <input type="text" id="usuario" maxlength="100" />
               </div>
               <div class="form-group">
                 <label for="setor">* Setor</label>
@@ -140,12 +158,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="usuario">Nome do Usuário</label>
-                <input type="text" id="usuario" maxlength="100" />
-              </div>
-              <div class="form-group">
                 <label for="valorAluguel">Valor Aluguel Mensal (R$)</label>
-                <input type="number" id="valorAluguel" step="0.01" min="0" />
+                <input type="number" id="valorAluguel" step="0.01" min="0" placeholder="Ex.: 100"/>
               </div>
               <div class="form-group">
                 <label class="checkbox-label">
@@ -157,6 +171,7 @@
             <div class="form-actions">
               <button type="button" class="btn btn-primary" id="openImportModal">
                 <i class="fas fa-file-import"></i> Importar em Massa
+              </button>  
               <button type="submit" class="btn btn-primary">
                 <i class="fas fa-save"></i> Salvar Equipamento
               </button>
@@ -216,6 +231,7 @@
                   <th data-sort="usuario">
                     Usuário <i class="fas fa-sort"></i>
                   </th>
+                  <th data-sort="dataChegada">Entrega <i class="fas fa-sort"></i></th>
                   <th data-sort="modelo">Modelo <i class="fas fa-sort"></i></th>
                   <th data-sort="geracao">
                     Geração <i class="fas fa-sort"></i>
@@ -243,9 +259,6 @@
             <button class="btn btn-primary" id="exportJSON">
               <i class="fas fa-file-code"></i> Exportar JSON
             </button>
-            <!-- <button class="btn btn-secondary" id="printReport">
-              <i class="fas fa-print"></i> Imprimir
-            </button> -->
           </div>
           <div id="reportContent">
             <div class="report-grid">
@@ -335,6 +348,7 @@
               <th>Tipo</th>
               <th>Setor</th>
               <th>Usuário</th>
+              <th>Entrega</th>
               <th>Modelo</th>
               <th>Geração</th>
               <th>Valor</th>
@@ -362,6 +376,9 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <script src="./js/index.js"></script>
+</div>
+</div>
+
+<script src="./js/index.js"></script>
   </body>
 </html>
