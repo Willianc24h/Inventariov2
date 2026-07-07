@@ -1,96 +1,64 @@
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const usuario = document.getElementById("loginUser").value;
-
-  const senha = document.getElementById("loginPass").value;
-
-  const erro = document.getElementById("loginError");
-
-  try {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        Email: usuario,
-        Senha: senha,
-      }),
-    });
-
-    if (!response.ok) {
-      erro.textContent = "Usuário ou senha inválidos";
-      return;
-    }
-
-    const data = await response.json();
-
-    // salva token
-    localStorage.setItem("token", data.token);
-
-    // salva usuário
-    localStorage.setItem("usuario", data.usuario);
-
-    // salva status login
-    localStorage.setItem("logado", "true");
-
-    // esconde login
-    document.getElementById("loginPage").style.display = "none";
-
-    // mostra sistema
-    document.getElementById("app").style.display = "block";
-
-    erro.textContent = "";
-  } catch (error) {
-    console.error("Erro no login:", error);
-
-    erro.textContent = "Erro ao conectar com servidor";
-  }
-});
-
-// VERIFICAR SESSÃO
-window.addEventListener("load", () => {
-  const logado = localStorage.getItem("logado");
-
-  if (logado === "true") {
-    document.getElementById("loginPage").style.display = "none";
-
-    document.getElementById("app").style.display = "block";
-  }
-});
-
-//botão sair
-document.getElementById("sairButton").addEventListener("click", () => {
-  localStorage.removeItem("logado");
-
-  document.getElementById("app").style.display = "none";
-
-  document.getElementById("loginPage").style.display = "flex";
-
-  document.getElementById("loginForm").reset();
-});
-
-// =========================
-// INICIAR
-// =========================
+const API_BASE = "http://localhost:5144/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   verificarLoginSalvo();
+  exibirMensagemLogout();
+  configurarLogin();
+  configurarToggleSenha();
 });
 
-// =========================
-// LOGIN JWT
-// =========================
+function configurarLogin() {
+  const loginForm = document.getElementById("loginForm");
+  const errorEl =
+    document.getElementById("loginError") ||
+    document.getElementById("loginErro");
+
+  if (!loginForm) return;
+
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const userInput = document.getElementById("loginUser");
+    const passInput = document.getElementById("loginPass");
+
+    const user = userInput ? userInput.value.trim() : "";
+    const pass = passInput ? passInput.value.trim() : "";
+
+    if (errorEl) {
+      errorEl.textContent = "";
+    }
+
+    if (!user || !pass) {
+      if (errorEl) {
+        errorEl.textContent = "Preencha usuário e senha.";
+      }
+      return;
+    }
+
+    try {
+      const data = await realizarLogin(user, pass);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("usuario", data.usuario || user);
+      localStorage.setItem("logado", "true");
+
+      window.location.href = "./html/app.html";
+    } catch (error) {
+      console.error("Erro no login:", error);
+
+      if (errorEl) {
+        errorEl.textContent = "Usuário ou senha inválidos.";
+      }
+    }
+  });
+}
 
 async function realizarLogin(user, pass) {
-  const response = await fetch("http://localhost:5000/api/Auth/login", {
+  const response = await fetch(`${API_BASE}/Auth/login`, {
     method: "POST",
-
     headers: {
       "Content-Type": "application/json",
     },
-
     body: JSON.stringify({
       Email: user,
       Senha: pass,
@@ -104,69 +72,44 @@ async function realizarLogin(user, pass) {
   return await response.json();
 }
 
-// =========================
-// LOGIN FORM
-// =========================
-
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const user = document.getElementById("loginUser").value;
-
-  const pass = document.getElementById("loginPass").value;
-
-  try {
-    const data = await realizarLogin(user, pass);
-
-    localStorage.setItem("token", data.token);
-
-    localStorage.setItem("logado", "true");
-
-    mostrarSistema();
-  } catch (error) {
-    document.getElementById("loginError").textContent =
-      "Usuário ou senha inválidos";
-  }
-});
-
-// =========================
-// LOGIN
-// =========================
-
 function verificarLoginSalvo() {
   const token = localStorage.getItem("token");
 
   if (token) {
-    mostrarSistema();
-  } else {
-    mostrarLogin();
+    window.location.href = "./html/app.html";
   }
 }
 
-function mostrarSistema() {
-  document.getElementById("loginPage").classList.remove("active");
+function exibirMensagemLogout() {
+  const mensagemLogout = localStorage.getItem("logoutMessage");
+  const errorEl =
+    document.getElementById("loginError") ||
+    document.getElementById("loginErro");
 
-  document.getElementById("app").style.display = "block";
-
-  if (!window.gerenciador) {
-    window.gerenciador = new GerenciadorEquipamentos();
+  if (mensagemLogout && errorEl) {
+    errorEl.textContent = mensagemLogout;
+    localStorage.removeItem("logoutMessage");
   }
 }
 
-function mostrarLogin() {
-  document.getElementById("loginPage").classList.add("active");
+function configurarToggleSenha() {
+  const toggleSenha = document.getElementById("toggleSenha");
+  const senhaInput = document.getElementById("loginPass");
 
-  document.getElementById("app").style.display = "none";
-}
+  if (!toggleSenha || !senhaInput) return;
 
-// =========================
-// LOGOUT
-// =========================
+  toggleSenha.addEventListener("click", () => {
+    const mostrando = senhaInput.type === "text";
 
-function logout() {
-  localStorage.removeItem("token");
+    senhaInput.type = mostrando ? "password" : "text";
 
-  localStorage.removeItem("logado");
+    toggleSenha.innerHTML = mostrando
+      ? '<i class="fa-solid fa-eye"></i>'
+      : '<i class="fa-solid fa-eye-slash"></i>';
 
-  location.reload();
+    toggleSenha.setAttribute(
+      "aria-label",
+      mostrando ? "Mostrar senha" : "Ocultar senha",
+    );
+  });
 }
