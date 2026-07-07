@@ -1,74 +1,3 @@
-/* Reset e Base - CENTRAL 24 HORAS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a2559 0%, #28377c 50%, #34428a 100%);
-    min-height: 100vh;
-    color: #28377c;
-}
-.login-page {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #28377c, #1a2559);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-}
-
-.login-logo {
-  width: 120px;
-  margin-bottom: 1.5rem;
-  border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(255,255,255,0.3);
-}
-
-.login-page.active {
-  display: flex;
-}
-
-.login-box {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  width: 300px;
-  text-align: center;
-}
-
-.login-box input {
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.7rem;
-}
-
-.login-box button {
-  width: 100%;
-  padding: 0.7rem;
-  cursor: pointer;
-  background-color: #f1c303;
-  border: 2px solid #f1c303;
-  color: #28377c;
-  font-weight: bold;
-  border-radius: 8px;}
-
-/* Gradientes da Central 24 Horas */
-.gradient-primary {
-    background: linear-gradient(135deg, #28377c 0%, #34428a 50%, #1a2559 100%);
-}
-
-.gradient-secondary {
-    background: linear-gradient(135deg, #f1c303 0%, #f8ec9a 50%, #fedb4a 100%);
-}
-
-.gradient-light {
-    background: linear-gradient(135deg, #fefffe 0%, #f8f9ff 50%, #fefffe 100%);
-}
-
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -77,7 +6,7 @@ body {
     flex-direction: column;
 }
 
-/* Header - Central 24 Horas */
+/* Header */
 .header {
     background: rgba(254, 255, 254, 0.98);
     backdrop-filter: blur(20px);
@@ -120,6 +49,10 @@ body {
     font-size: 2.2rem;
 }
 
+.header-logo {
+    width: 5rem;
+}
+
 .header-stats {
     display: flex;
     gap: 1rem;
@@ -157,7 +90,7 @@ body {
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Navigation - Central 24 Horas */
+/* Nav */
 .nav {
     display: flex;
     background: rgba(254, 255, 254, 0.95);
@@ -226,7 +159,7 @@ body {
     color: #28377c !important;
 }
 
-/* Main Content */
+/* Main */
 .main-content {
     flex: 1;
     padding: 2.5rem;
@@ -243,13 +176,13 @@ body {
 }
 
 @keyframes fadeInUp {
-    from { 
-        opacity: 0; 
-        transform: translateY(30px); 
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -264,13 +197,13 @@ h2 {
     text-shadow: 0 4px 15px rgba(241, 195, 3, 0.3);
 }
 
-/* Cards - Central 24 Horas */
+/* Cards */
 .card {
     background: rgba(254, 255, 254, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 24px;
     padding: 2rem;
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(40, 55, 124, 0.12),
         0 0 0 1px rgba(254, 255, 254, 0.8),
         inset 0 1px 0 rgba(241, 195, 3, 0.1);
@@ -292,7 +225,7 @@ h2 {
 
 .card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 
+    box-shadow:
         0 30px 60px rgba(40, 55, 124, 0.2),
         0 0 0 1px rgba(241, 195, 3, 0.3);
 }
@@ -321,46 +254,27 @@ h2 {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-
     padding: 0.9rem 1.4rem;
-
-    background: linear-gradient(
-        135deg,
-        rgba(239, 68, 68, 0.95),
-        rgba(185, 28, 28, 0.95)
-    );
-
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95));
     border: 2px solid rgba(255,255,255,0.15);
-
     border-radius: 16px;
-
     color: white;
     font-size: 0.95rem;
     font-weight: 700;
-
     cursor: pointer;
-
     transition: all 0.3s ease;
-
     box-shadow:
         0 12px 24px rgba(239, 68, 68, 0.25),
         inset 0 1px 0 rgba(255,255,255,0.15);
-
     backdrop-filter: blur(10px);
 }
 
 .btn-sair:hover {
     transform: translateY(-2px) scale(1.03);
-
     box-shadow:
         0 18px 35px rgba(239, 68, 68, 0.35),
         inset 0 1px 0 rgba(255,255,255,0.2);
-
-    background: linear-gradient(
-        135deg,
-        rgba(220, 38, 38, 1),
-        rgba(127, 29, 29, 1)
-    );
+    background: linear-gradient(135deg, rgba(220, 38, 38, 1), rgba(127, 29, 29, 1));
 }
 
 .btn-sair:active {
@@ -371,112 +285,7 @@ h2 {
     font-size: 1rem;
 }
 
-.login-page {
-    position: fixed;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #1a2559,
-            #28377c,
-            #34428a
-        );
-
-    overflow: hidden;
-    z-index: 9999;
-}
-
-.login-box {
-    width: 400px;
-
-    padding: 3rem;
-
-    border-radius: 28px;
-
-    background: rgba(255,255,255,0.08);
-
-    backdrop-filter: blur(25px);
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    box-shadow:
-        0 30px 60px rgba(0,0,0,0.25);
-
-    text-align: center;
-}
-
-.login-logo {
-    width: 130px;
-    margin-bottom: 1.5rem;
-    border-radius: 20px;
-}
-
-.login-box h2 {
-    color: white;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-}
-
-.login-box input {
-    width: 100%;
-
-    padding: 1rem;
-
-    margin-bottom: 1rem;
-
-    border: none;
-    border-radius: 14px;
-
-    background: rgba(255,255,255,0.12);
-
-    color: white;
-
-    font-size: 1rem;
-}
-
-.login-box input::placeholder {
-    color: rgba(255,255,255,0.7);
-}
-
-.login-box button {
-    width: 100%;
-
-    padding: 1rem;
-
-    border: none;
-    border-radius: 14px;
-
-    background: linear-gradient(
-        135deg,
-        #f1c303,
-        #ffdd57
-    );
-
-    color: #1a2559;
-
-    font-size: 1rem;
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.login-box button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(241,195,3,0.35);
-}
-
-.header-logo{
-    width: 5rem;
-}
-
-/* Dashboard Grid */
+/* Dashboard */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -500,13 +309,13 @@ h2 {
     border: 2px solid rgba(241, 195, 3, 0.2);
 }
 
-/* Formulário - Central 24 Horas */
+/* Form */
 .form-container {
     background: rgba(254, 255, 254, 0.97);
     backdrop-filter: blur(25px);
     border-radius: 28px;
     padding: 3rem;
-    box-shadow: 
+    box-shadow:
         0 30px 60px rgba(40, 55, 124, 0.15),
         0 0 0 1px rgba(254, 255, 254, 0.9),
         inset 0 1px 0 rgba(241, 195, 3, 0.2);
@@ -569,7 +378,7 @@ h2 {
 .form-group select:focus {
     outline: none;
     border-color: #f1c303;
-    box-shadow: 
+    box-shadow:
         0 0 0 4px rgba(241, 195, 3, 0.15),
         0 8px 25px rgba(241, 195, 3, 0.1);
     transform: translateY(-2px);
@@ -630,14 +439,15 @@ h2 {
     background: rgba(254, 255, 254, 0.9);
 }
 
-/* Tabela - Central 24 Horas */
+/* Tabelas */
 .table-container {
     max-height: 75vh;
     overflow-y: auto;
     border-radius: 1em;
 }
 
-#equipamentosTable {
+#equipamentosTable,
+table {
     width: 100%;
     border-collapse: collapse;
 }
@@ -647,11 +457,6 @@ h2 {
     top: 0;
     background: white;
     z-index: 1;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
 }
 
 th {
@@ -702,7 +507,7 @@ td {
     font-size: 1.1rem;
 }
 
-/* Botões de Ação */
+/* Ações */
 .action-btn {
     padding: 0.75rem;
     border: none;
@@ -726,7 +531,7 @@ td {
 
 .btn-edit:hover {
     transform: translateY(-3px) scale(1.1);
-        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
 }
 
 .btn-delete {
@@ -749,66 +554,6 @@ td {
     box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
 }
 
-/* Botões Principais - Central 24 Horas */
-.btn {
-    padding: 1.1rem 2.2rem;
-    border: none;
-    border-radius: 20px;
-    font-size: 1.1rem;
-    font-weight: 800;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.6s;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #28377c, #34428a, #1a2559);
-    color: #fefffe;
-    box-shadow: 0 10px 30px rgba(40, 55, 124, 0.4);
-    border: 2px solid rgba(241, 195, 3, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(40, 55, 124, 0.5);
-    border-color: #f1c303;
-}
-
-.btn-secondary {
-    background: linear-gradient(135deg, #fefffe, #f8ec9a);
-    color: #28377c;
-    border: 2px solid rgba(151, 161, 188, 0.4);
-    box-shadow: 0 8px 25px rgba(248, 236, 154, 0.3);
-}
-
-.btn-secondary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(241, 195, 3, 0.4);
-    border-color: #f1c303;
-}
-
 /* Relatórios */
 .report-actions {
     display: flex;
@@ -829,7 +574,7 @@ td {
     backdrop-filter: blur(20px);
     border-radius: 24px;
     padding: 2.5rem;
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(40, 55, 124, 0.12),
         0 0 0 1px rgba(254, 255, 254, 0.8);
     border: 2px solid rgba(151, 161, 188, 0.2);
@@ -872,14 +617,11 @@ td {
     box-shadow: 0 8px 25px rgba(241, 195, 3, 0.2);
 }
 
-/* Modal - Central 24 Horas */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(26, 37, 89, 0.85);
     backdrop-filter: blur(15px);
     z-index: 1000;
@@ -899,7 +641,7 @@ td {
     max-width: 95%;
     max-height: 95%;
     overflow-y: auto;
-    box-shadow: 
+    box-shadow:
         0 40px 80px rgba(40, 55, 124, 0.3),
         0 0 0 1px rgba(254, 255, 254, 0.9),
         inset 0 1px 0 rgba(241, 195, 3, 0.2);
@@ -952,7 +694,7 @@ td {
     padding: 2.5rem;
 }
 
-/* Gráficos */
+/* Histórico / gráficos */
 .setor-bar {
     display: flex;
     align-items: center;
@@ -972,18 +714,13 @@ td {
 }
 
 .historico-item {
-    border: 2px solid rgba(151, 161, 188, 0.3);
-    border-radius: 20px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, rgba(254,255,254,0.9), rgba(248,236,154,0.2));
-    box-shadow: 0 8px 25px rgba(40, 55, 124, 0.1);
-    transition: all 0.3s ease;
-}
-
-.historico-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(40, 55, 124, 0.15);
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(151,161,188,0.18);
+    border-radius: 18px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .historico-header {
@@ -991,23 +728,58 @@ td {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgba(241, 195, 3, 0.3);
 }
 
 .historico-header strong {
-    color: #28377c;
-    font-weight: 900;
+    color: #1a2559;
+    font-size: 0.95rem;
+}
+
+.historico-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+.badge-entrada {
+    background: #10b981;
+}
+
+.badge-saída {
+    background: #ef4444;
+}
+
+.badge-editado {
+    background: #f59e0b;
 }
 
 .historico-detalhes {
-    font-size: 0.95rem;
-    color: #524d7c;
-    padding-left: 1.5rem;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
-/* Toast - Central 24 Horas */
+.historico-linha {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(151,161,188,0.12);
+    color: #34428a;
+    font-size: 0.92rem;
+}
+
+.historico-edicao {
+    margin-top: 0.8rem;
+    padding: 1rem;
+    border-radius: 14px;
+    background: rgba(40,55,124,0.04);
+    border: 1px solid rgba(40,55,124,0.08);
+}
+
+/* Toast */
 .toast {
     position: fixed;
     top: 30px;
@@ -1035,126 +807,7 @@ td {
     box-shadow: 0 15px 40px rgba(239, 68, 68, 0.5);
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-    .dashboard-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-    }
-    
-    .header h1 {
-        font-size: 1.7rem;
-    }
-    
-    .nav {
-        flex-direction: column;
-    }
-    
-    .nav-btn {
-        justify-content: center;
-        min-width: auto;
-        padding: 1.25rem;
-    }
-    
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .filters {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .filters input,
-    .filters select {
-        min-width: auto;
-    }
-    
-    .form-actions,
-    .report-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    table {
-        font-size: 0.95rem;
-    }
-    
-    th,
-    td {
-        padding: 1rem 0.75rem;
-    }
-    
-    .action-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-        margin: 0 0.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-content {
-        padding: 1.5rem 1rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-        text-align: center;
-    }
-    
-    .table-container {
-        max-height: 65vh;
-        border-radius: 16px;
-    }
-    
-    .card {
-        padding: 1.5rem;
-    }
-    
-    .stat-large {
-        font-size: 2.8rem;
-    }
-}
-
-/* Scrollbar customizada */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(151, 161, 188, 0.2);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #f1c303, #f8ec9a);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #28377c, #f1c303);
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
+/* Utilitários do app */
 #buscandoIndicator {
     position: absolute;
     right: 20px;
@@ -1169,114 +822,109 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .import-box {
-  border: 2px dashed #cbd5e1;
-  padding: 20px;
-  width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  cursor: pointer;
+    border: 2px dashed #cbd5e1;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .import-box:hover {
-  background: #f1f5f9;
+    background: #f1f5f9;
 }
 
-.historico-item {
-
-    background: rgba(255,255,255,0.75);
-
-    border: 1px solid rgba(151,161,188,0.18);
-
-    border-radius: 18px;
-
-    padding: 1.2rem;
-
-    margin-bottom: 1rem;
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.08);
+/* Responsividade */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
 
-.historico-header {
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
 
-    display: flex;
+    .header h1 {
+        font-size: 1.7rem;
+    }
 
-    justify-content: space-between;
+    .nav {
+        flex-direction: column;
+    }
 
-    align-items: center;
+    .nav-btn {
+        justify-content: center;
+        min-width: auto;
+        padding: 1.25rem;
+    }
 
-    margin-bottom: 1rem;
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters input,
+    .filters select {
+        min-width: auto;
+    }
+
+    .form-actions,
+    .report-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    table {
+        font-size: 0.95rem;
+    }
+
+    th,
+    td { 
+        padding: 1rem 0.75rem;
+    }
+
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        margin: 0 0.25rem;
+    }
 }
 
-.historico-header strong {
+@media (max-width: 480px) {
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
 
-    color: #1a2559;
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
 
-    font-size: 0.95rem;
-}
+    .table-container {
+        max-height: 65vh;
+        border-radius: 16px;
+    }
 
-.historico-badge {
+    .card {
+        padding: 1.5rem;
+    }
 
-    padding: 0.4rem 0.8rem;
-
-    border-radius: 999px;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    color: white;
-}
-
-.badge-entrada {
-    background: #10b981;
-}
-
-.badge-saída {
-    background: #ef4444;
-}
-
-.badge-editado {
-    background: #f59e0b;
-}
-
-.historico-detalhes {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 0.7rem;
-}
-
-.historico-linha {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 1rem;
-
-    padding-bottom: 0.4rem;
-
-    border-bottom: 1px solid rgba(151,161,188,0.12);
-
-    color: #34428a;
-
-    font-size: 0.92rem;
-}
-
-.historico-edicao {
-
-    margin-top: 0.8rem;
-
-    padding: 1rem;
-
-    border-radius: 14px;
-
-    background: rgba(40,55,124,0.04);
-
-    border: 1px solid rgba(40,55,124,0.08);
+    .stat-large {
+        font-size: 2.8rem;
+    }
 }

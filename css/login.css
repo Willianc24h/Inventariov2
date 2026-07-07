@@ -1,0 +1,106 @@
+.login-page {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a2559, #28377c, #34428a);
+    overflow: hidden;
+    z-index: 9999;
+}
+ 
+.login-box {
+    width: 400px;
+    padding: 3rem;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.login-logo {
+    width: 130px;
+    margin-bottom: 1.5rem;
+    border-radius: 20px;
+}
+
+.login-box h2 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    font-size: 1rem;
+}
+
+.login-box input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f1c303, #ffdd57);
+    color: #1a2559;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(241,195,3,0.35);
+}
+
+.error-message-login {
+    color: white;
+}
+
+/* Mostrar / ocultar senha */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+    margin-bottom: 0;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
+    width: auto;
+    box-shadow: none;
+}
+
+.toggle-password:hover {
+    color: #f1c303;
+    transform: none;
+    box-shadow: none;
+}
