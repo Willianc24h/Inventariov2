@@ -1,7 +1,7 @@
 // Sistema de Gerenciamento de Equipamentos TI
 class GerenciadorEquipamentos {
   constructor() {
-    this.apiUrl = "http://192.168.5.32:5500/api";
+    this.apiUrl = "http://localhost:5000/api";
     this.equipamentos = [];
     this.currentSort = { column: null, direction: "asc" };
     this.init();
@@ -1193,7 +1193,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   const erro = document.getElementById("loginError");
 
   try {
-    const response = await fetch("http://localhost:5144/api/auth/login", {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -1269,7 +1269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // =========================
 
 async function realizarLogin(user, pass) {
-  const response = await fetch("http://192.168.5.32:5500/api/Auth/login", {
+  const response = await fetch("http://localhost:5000/api/Auth/login", {
     method: "POST",
 
     headers: {

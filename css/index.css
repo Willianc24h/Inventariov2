@@ -843,7 +843,7 @@ td {
 }
 
 .report-value {
-    font-size: 3.8rem;
+    font-size: 3rem;
     font-weight: 900;
     background: linear-gradient(135deg, #28377c, #f1c303);
     -webkit-background-clip: text;
