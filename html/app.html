@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Gerenciamento de Equipamentos TI</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <header class="header">
+          <div class="header-content">
+            <h1>
+              <img
+                src="../img/central_24_horas_logo.jpg"
+                alt="Logo da central 24 horas"
+                class="header-logo"
+              />
+              Gerenciador de Equipamentos TI
+            </h1>
+
+            <button id="sairButton" class="btn-sair">
+              <i class="fas fa-sign-out-alt"></i>
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <nav class="nav">
+          <button class="nav-btn active" data-page="dashboard">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+          </button>
+          <button class="nav-btn" data-page="cadastro">
+            <i class="fas fa-plus"></i> Cadastrar
+          </button>
+          <button class="nav-btn" data-page="listagem">
+            <i class="fas fa-list"></i> Listagem
+          </button>
+          <button class="nav-btn" data-page="relatorios">
+            <i class="fas fa-chart-bar"></i> Relatórios
+          </button>
+        </nav>
+
+        <main class="main-content">
+          <section id="dashboard" class="page active">
+            <h2>Dashboard</h2>
+            <div class="dashboard-grid">
+              <div class="card">
+                <h3>Notebooks</h3>
+                <div class="stat-large" id="dashNotebooks">0</div>
+              </div>
+              <div class="card">
+                <h3>Desktops</h3>
+                <div class="stat-large" id="dashDesktops">0</div>
+              </div>
+              <div class="card">
+                <h3>Monitores</h3>
+                <div class="stat-large" id="dashMonitors">0</div>
+              </div>
+              <div class="card">
+                <h3>Total Equipamentos</h3>
+                <div class="stat-large" id="dashTotalEquipments">0</div>
+              </div>
+              <div class="card">
+                <h3>Valor Total Aluguel</h3>
+                <div class="stat-large" id="dashTotalValue">R$ 0,00</div>
+              </div>
+
+              <div class="card full-width">
+                <h3>Equipamentos por Setor</h3>
+                <div id="setorChart" class="chart-container"></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="cadastro" class="page">
+            <h2>Cadastro de Equipamento</h2>
+            <form id="equipamentoForm" class="form-container">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="tag">* Tag (ID único)</label>
+                  <input type="number" id="tag" required maxlength="6" />
+                  <span class="error-message" id="tagError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="tipo">* Tipo</label>
+                  <select id="tipo" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Monitor">Monitor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="geracao">Geração</label>
+                  <input type="number" id="geracao" maxlength="2" />
+                </div>
+                <div class="form-group">
+                  <label for="dataChegada">* Data de Chegada</label>
+                  <input type="date" id="dataChegada" required />
+                </div>
+                <div class="form-group">
+                  <label for="modelo">Modelo</label>
+                  <input type="text" id="modelo" maxlength="100" />
+                </div>
+                <div class="form-group">
+                  <label for="usuario">Nome do Usuário</label>
+                  <input type="text" id="usuario" maxlength="100" />
+                </div>
+                <div class="form-group">
+                  <label for="setor">* Setor</label>
+                  <select id="setor" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Brava">Brava</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="CRF">CRF</option>
+                    <option value="Davita">Davita</option>
+                    <option value="Diretoria">Diretoria</option>
+                    <option value="Financeiro">Financeiro</option>
+                    <option value="Newe Seguros">Newe Seguros</option>
+                    <option value="Planejamento">Planejamento</option>
+                    <option value="RH">RH</option>
+                    <option value="TI">TI</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="valorAluguel">Valor Aluguel Mensal (R$)</label>
+                  <input
+                    type="number"
+                    id="valorAluguel"
+                    step="0.01"
+                    min="0"
+                    placeholder="Ex.: 100"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="ativo" checked />
+                    Equipamento Ativo
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="openImportModal"
+                >
+                  <i class="fas fa-file-import"></i> Importar em Massa
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> Salvar Equipamento
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                  <i class="fas fa-undo"></i> Limpar
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section id="listagem" class="page">
+            <h2>Listagem de Equipamentos</h2>
+            <div class="filters">
+              <input
+                type="text"
+                id="searchTag"
+                placeholder="Buscar por Tag..."
+              />
+              <input
+                type="text"
+                id="searchUsuario"
+                placeholder="Buscar por Usuário..."
+              />
+              <select id="searchSetor">
+                <option value="">Todos os Setores</option>
+                <option value="Brava">Brava</option>
+                <option value="Comercial">Comercial</option>
+                <option value="CRF">CRF</option>
+                <option value="Davita">Davita</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Diretoria">Diretoria</option>
+                <option value="Newe Seguros">Newe Seguros</option>
+                <option value="Planejamento">Planejamento</option>
+                <option value="RH">RH</option>
+                <option value="TI">TI</option>
+              </select>
+
+              <button class="btn btn-secondary" id="clearFilters">
+                <i class="fas fa-times"></i> Limpar
+              </button>
+            </div>
+
+            <div
+              id="buscandoIndicator"
+              style="display: none; font-weight: bold; color: #f1c303"
+            >
+              🔍 Buscando...
+            </div>
+
+            <div class="table-container">
+              <table id="equipamentosTable">
+                <thead>
+                  <tr>
+                    <th data-sort="tag">Tag <i class="fas fa-sort"></i></th>
+                    <th data-sort="tipo">Tipo <i class="fas fa-sort"></i></th>
+                    <th data-sort="setor">Setor <i class="fas fa-sort"></i></th>
+                    <th data-sort="usuario">
+                      Usuário <i class="fas fa-sort"></i>
+                    </th>
+                    <th data-sort="dataChegada">
+                      Entrega <i class="fas fa-sort"></i>
+                    </th>
+                    <th data-sort="modelo">
+                      Modelo <i class="fas fa-sort"></i>
+                    </th>
+                    <th data-sort="geracao">
+                      Geração <i class="fas fa-sort"></i>
+                    </th>
+                    <th data-sort="ativo">
+                      Status <i class="fas fa-sort"></i>
+                    </th>
+                    <th data-sort="valorAluguel">
+                      Valor <i class="fas fa-sort"></i>
+                    </th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="relatorios" class="page">
+            <h2>Relatórios</h2>
+            <div class="report-actions">
+              <button class="btn btn-primary" id="exportCSV">
+                <i class="fas fa-file-csv"></i> Exportar CSV
+              </button>
+              <button class="btn btn-primary" id="exportJSON">
+                <i class="fas fa-file-code"></i> Exportar JSON
+              </button>
+            </div>
+            <div id="reportContent">
+              <div class="report-grid">
+                <div class="report-card">
+                  <h3>Total Equipamentos</h3>
+                  <div class="report-value" id="reportTotal">0</div>
+                </div>
+                <div class="report-card">
+                  <h3>Valor Total Aluguel</h3>
+                  <div class="report-value" id="reportTotalValue">R$ 0,00</div>
+                </div>
+                <div class="report-card">
+                  <h3>Por Tipo</h3>
+                  <div id="reportByType"></div>
+                </div>
+                <div class="report-card full-width">
+                  <h3>Por Setor</h3>
+                  <div id="reportBySetor"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <div id="historicoModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modalTitle">Histórico do Equipamento</h3>
+            <button class="close-modal" id="closeHistorico">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="historicoContent"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Editar Equipamento</h3>
+            <button class="close-modal" id="closeEdit">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm"></form>
+          </div>
+        </div>
+      </div>
+
+      <div id="importModal" class="modal">
+        <div class="modal-content" style="max-width: 900px">
+          <div class="modal-header">
+            <h3>Importação em Massa</h3>
+            <button class="close-modal" id="closeImportModal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="import-box" id="dropZone">
+              <p>Arraste um CSV ou clique para selecionar</p>
+              <input type="file" id="fileInput" accept=".csv" hidden />
+              <button type="button" class="btn btn-primary" id="selectFileBtn">
+                Selecionar Arquivo
+              </button>
+            </div>
+
+            <div class="table-container" style="margin-top: 15px">
+              <table id="previewTable">
+                <thead>
+                  <tr>
+                    <th>Tag</th>
+                    <th>Tipo</th>
+                    <th>Setor</th>
+                    <th>Usuário</th>
+                    <th>Entrega</th>
+                    <th>Modelo</th>
+                    <th>Geração</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <div
+              style="
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+              "
+            >
+              <button class="btn btn-secondary" id="clearPreview">
+                Limpar
+              </button>
+              <button class="btn btn-primary" id="confirmImport">
+                Importar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
